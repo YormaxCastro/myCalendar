@@ -1,9 +1,9 @@
-.dateRange{
+.horizontalRow{
     list-style-type:none;
 
 }
 
-.dateRange li {
+.horizontalRow li {
     display: inline;
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
 }

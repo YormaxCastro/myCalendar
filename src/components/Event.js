@@ -35,7 +35,16 @@ class Event extends Component {
         return (
             <div>
                 <form>
-                    <ul class="dateRange">
+                    <ul class="horizontalRow">
+                        <li>
+                            <input type="text" placeholder="Event Name"></input>
+                        </li>
+                        <li>
+                            <input type="submit" value="Save"></input>
+                        </li>
+
+                        <br></br>
+                        <br></br>
                         <li> 
                             <DatePicker
                             selected={this.state.startDate}
@@ -58,6 +67,15 @@ class Event extends Component {
                             dateFormat="MMMM d, yyyy h:mm aa"
                             timeCaption="time"
                             />
+                        </li>
+                        <li>
+                            <h1>Event Details</h1>
+                        </li>
+
+                        <li>
+                                <label for="location"> </label>
+                                <input type="text" name="location" placeholder="Ex. Menlo Park"/> 
+                            
                         </li>
                     </ul>
 
