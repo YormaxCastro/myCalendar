@@ -1,0 +1,9 @@
+.dateRange{
+    list-style-type:none;
+
+}
+
+.dateRange li {
+    display: inline;
+    padding: 10px;
+}

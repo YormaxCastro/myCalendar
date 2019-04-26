@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./event.css";
+
 
 
 class Event extends Component {
@@ -33,26 +35,31 @@ class Event extends Component {
         return (
             <div>
                 <form>
-                    <br></br>
-                    <DatePicker
-                        selected={this.state.startDate}
-                        onChange={this.handleStartChange}
-                        showTimeSelect
-                        timeFormat="HH:mm"
-                        timeIntervals={15}
-                        dateFormat="MMMM d, yyyy h:mm aa"
-                        timeCaption="time"
-                    />
-                    <p>to</p>
-                    <DatePicker
-                        selected={this.state.endDate}
-                        onChange={this.handleEndChange}
-                        showTimeSelect
-                        timeFormat="HH:mm"
-                        timeIntervals={15}
-                        dateFormat="MMMM d, yyyy h:mm aa"
-                        timeCaption="time"
-                    />
+                    <ul class="dateRange">
+                        <li> 
+                            <DatePicker
+                            selected={this.state.startDate}
+                            onChange={this.handleStartChange}
+                            showTimeSelect
+                            timeFormat="HH:mm"
+                            timeIntervals={15}
+                            dateFormat="MMMM d, yyyy h:mm aa"
+                            timeCaption="time"
+                            /> 
+                        </li>
+                        <li> to </li>
+                        <li>                     
+                            <DatePicker
+                            selected={this.state.endDate}
+                            onChange={this.handleEndChange}
+                            showTimeSelect
+                            timeFormat="HH:mm"
+                            timeIntervals={15}
+                            dateFormat="MMMM d, yyyy h:mm aa"
+                            timeCaption="time"
+                            />
+                        </li>
+                    </ul>
 
 
                     <p> Day to Day</p>
