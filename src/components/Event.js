@@ -89,7 +89,7 @@ class Event extends Component {
             </li>
 
             <li> <p>Guest List</p> </li>
-
+            <li>List for guest</li>
 
           </ul>
 
