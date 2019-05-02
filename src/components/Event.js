@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import * as ReactBootstrap from 'react-bootstrap';
 import "./event.css";
 
 
@@ -33,7 +33,7 @@ class Event extends Component {
 
   render() {
     return (
-      <div>
+      <div class="eventContainer">
         <form>
           <ul class="horizontalRow">
             <li>
@@ -41,6 +41,8 @@ class Event extends Component {
             </li>
             <li>
               <input type="text" placeholder="Event Name"></input>
+              <ReactBootstrap.Button variant="success">Success</ReactBootstrap.Button>
+
             </li>
             <li>
               <input type="submit" value="Save"></input>
@@ -87,17 +89,17 @@ class Event extends Component {
               <br></br>
               <textarea name="description"></textarea>
             </li>
-
+            {/* 
             <li> <p>Guest List</p> </li>
-            <li>List for guest</li>
+            <li>List for guest</li> */}
 
           </ul>
-
+          {/* 
 
           <p> Day to Day</p>
           <p>Location</p>
           <p>Description</p>
-          <p>guest</p>
+          <p>guest</p> */}
 
         </form>
 
