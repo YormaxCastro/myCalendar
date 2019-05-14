@@ -1,14 +1,28 @@
+h1{
+    padding: 5px;
+}
 .horizontalRow{
     list-style-type:none;
 
 }
-
 .horizontalRow li {
     display: inline;
     padding: 10px 10px 10px 10px;
+    margin: 5px;
+}
+.horizontalRow li *{
+    margin: 5px;
+}
+.horizontalRow .dateRanges{
+    display: inline-block;
 }
 
 .eventContainer{
     margin: 0 auto;
     width: 550px;
+    border-style: solid;
+}
+#description{
+    height: 300px;
+    width: 400px;
 }

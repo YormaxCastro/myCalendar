@@ -35,22 +35,20 @@ class Event extends Component {
     return (
       <div class="eventContainer">
         <form>
+        <h1>Event Details</h1>
           <ul class="horizontalRow">
             <li>
-              <h1>Event Details</h1>
             </li>
             <li>
               <input type="text" placeholder="Event Name"></input>
-              <ReactBootstrap.Button variant="success">Success</ReactBootstrap.Button>
+              <ReactBootstrap.Button variant="success">Save</ReactBootstrap.Button>
 
-            </li>
-            <li>
-              <input type="submit" value="Save"></input>
             </li>
 
             <br></br>
             <br></br>
-            <li>
+
+            <li class="dateRanges">
               <label for="dateRange">Date :</label>
               <DatePicker
                 name="dateRange"
@@ -62,9 +60,7 @@ class Event extends Component {
                 dateFormat="MMMM d, yyyy h:mm aa"
                 timeCaption="time"
               />
-            </li>
-            <li> to </li>
-            <li>
+              <p>to</p>
               <DatePicker
                 selected={this.state.endDate}
                 onChange={this.handleEndChange}
@@ -75,31 +71,34 @@ class Event extends Component {
                 timeCaption="time"
               />
             </li>
+             <br></br>
             <br></br>
-            <br></br>
+
             <li>
               <label for="location"> Location: </label>
               <input type="text" name="location" placeholder="Ex. Menlo Park" />
             </li>
             <br></br>
             <br></br>
+            
             <li>
               <label for="description">Description:</label>
               <br></br>
               <br></br>
-              <textarea name="description"></textarea>
+              <textarea  id="description" name="description"></textarea>
             </li>
-            {/* 
+             
             <li> <p>Guest List</p> </li>
-            <li>List for guest</li> */}
+            <li>List for guest</li>  
 
           </ul>
-          {/* 
 
-          <p> Day to Day</p>
+          
+
+          {/* <p> Day to Day</p>
           <p>Location</p>
           <p>Description</p>
-          <p>guest</p> */}
+          <p>guest</p>   */}
 
         </form>
 
