@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import * as ReactBootstrap from 'react-bootstrap';
+import  { Form, InputGroup, FormControl } from 'react-bootstrap';
 import "./event.css";
 
 
@@ -40,12 +40,30 @@ class Event extends Component {
   render() {
     return (
       <div className="eventContainer">
+      {/* <Form>
+        <Form.Group controlId="exampleForm.ControlInput1">
+          <Form.Label>Event</Form.Label>
+          <Form.Control placeholder="John Doe's Birthday" /> 
+          <Form.Label>Date</Form.Label>
+          <Form.Control placeholder="Date"/>
+        </Form.Group>
+        
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Example textarea</Form.Label>
+          <Form.Control as="textarea" rows="3" />
+        </Form.Group>
+        
+      </Form>; */}
 
         <h1>Event Details</h1>
           <ul className="horizontalRow">
             <li>
-              {/* <input type="text" placeholder="Event Name" ></input>
-              <input type="submit" onSubmit= { this.saveEvent }>Save</input> */}
+        <InputGroup size="lg">
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-lg">Large</InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+      </InputGroup>
             </li>
 
             <br></br>
