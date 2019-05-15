@@ -26,3 +26,7 @@ h1{
     height: 300px;
     width: 475px;
 }
+#dateRange{
+    display: inline-flex;
+    padding: 2px;
+}

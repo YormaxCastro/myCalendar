@@ -39,87 +39,60 @@ class Event extends Component {
 
   render() {
     return (
+
       <div className="eventContainer">
-      {/* <Form>
-        <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label>Event</Form.Label>
-          <Form.Control placeholder="John Doe's Birthday" /> 
-          <Form.Label>Date</Form.Label>
-          <Form.Control placeholder="Date"/>
-        </Form.Group>
-        
-        <Form.Group controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Example textarea</Form.Label>
-          <Form.Control as="textarea" rows="3" />
-        </Form.Group>
-        
-      </Form>; */}
-
-        <h1>Event Details</h1>
-          <ul className="horizontalRow">
-            <li>
-        <InputGroup size="lg">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-lg">Large</InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
-      </InputGroup>
-            </li>
-
-            <br></br>
-            <br></br>
-
-            <li>
-              <label htmlFor="dateRange">Date :</label>
-              <DatePicker
-                className="dateRange"
-                selected={this.state.startDate}
-                onChange={this.handleStartChange}
+        <h1> Event Details </h1>
+          <Form>
+            <Form.Group controlId="eventDetails">
+              <Form.Label>Event</Form.Label>
+              <Form.Control placeholder="John Doe's Birthday" /> 
+              <Form.Label>Date</Form.Label>
+              <div id="dateRange">
+                < DatePicker
+                selected = {
+                  this.state.startDate
+                }
+                onChange = {
+                  this.handleStartChange
+                }
                 showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time"
-              />
-              <p>to</p>
-              <DatePicker
-                selected={this.state.endDate}
-                onChange={this.handleEndChange}
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time"
-              />
-            </li>
-             <br></br>
-            <br></br>
+                timeFormat = "HH:mm"
+                timeIntervals = {
+                  15
+                }
+                dateFormat = "MMMM d, yyyy h:mm aa"
+                timeCaption = "time" /
+                  > 
+              <p> to</p>
+              < DatePicker
+              selected = {
+                this.state.endDate
+              }
+              onChange = {
+                this.handleEndChange
+              }
+              showTimeSelect
+              timeFormat = "HH:mm"
+              timeIntervals = {
+                15
+              }
+              dateFormat = "MMMM d, yyyy h:mm aa"
+              timeCaption = "time" /
+                >
+            </div>
 
-            {/* <li>
-              <label htmlFor="location"> Location: </label>
-              <input type="text" className="location" placeholder="Ex. Menlo Park" />
-            </li> */}
-            <br></br>
-            <br></br>
+
+            </Form.Group>
             
-            <li>
-              <label htmlFor="description">Description:</label>
-              <br></br>
-              <br></br>
-              <textarea  id="description" className="description"></textarea>
-            </li>
-             
-            <li> <p>Guest List</p> </li>
-            <li>List for guest</li>  
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Example textarea</Form.Label>
+              <Form.Control as="textarea" rows="3" />
+            </Form.Group>
+            
+          </Form>
 
-          </ul>
-
+        
           
-
-          {/* <p> Day to Day</p>
-          <p>Location</p>
-          <p>Description</p>
-          <p>guest</p>   */}
 
       </div>
     );
