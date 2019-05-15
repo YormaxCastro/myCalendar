@@ -11,18 +11,24 @@ class Event extends Component {
     super(props);
     this.state = {
       startDate: new Date(),
-      endDate: new Date()
+      endDate: new Date(),
+      location: null
     };
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
 
   }
 
-
+  saveEvent= () =>{
+    console.log(this.state);
+    console.log("Hello ");
+  }
   handleStartChange(date) {
+
     this.setState({
       startDate: date
     });
+    console.log(this.state.startDate);
   }
   handleEndChange(date) {
     this.setState({
@@ -33,25 +39,22 @@ class Event extends Component {
 
   render() {
     return (
-      <div class="eventContainer">
-        <form>
+      <div className="eventContainer">
+
         <h1>Event Details</h1>
-          <ul class="horizontalRow">
+          <ul className="horizontalRow">
             <li>
-            </li>
-            <li>
-              <input type="text" placeholder="Event Name"></input>
-              <ReactBootstrap.Button variant="success">Save</ReactBootstrap.Button>
-
+              {/* <input type="text" placeholder="Event Name" ></input>
+              <input type="submit" onSubmit= { this.saveEvent }>Save</input> */}
             </li>
 
             <br></br>
             <br></br>
 
-            <li class="dateRanges">
-              <label for="dateRange">Date :</label>
+            <li>
+              <label htmlFor="dateRange">Date :</label>
               <DatePicker
-                name="dateRange"
+                className="dateRange"
                 selected={this.state.startDate}
                 onChange={this.handleStartChange}
                 showTimeSelect
@@ -74,18 +77,18 @@ class Event extends Component {
              <br></br>
             <br></br>
 
-            <li>
-              <label for="location"> Location: </label>
-              <input type="text" name="location" placeholder="Ex. Menlo Park" />
-            </li>
+            {/* <li>
+              <label htmlFor="location"> Location: </label>
+              <input type="text" className="location" placeholder="Ex. Menlo Park" />
+            </li> */}
             <br></br>
             <br></br>
             
             <li>
-              <label for="description">Description:</label>
+              <label htmlFor="description">Description:</label>
               <br></br>
               <br></br>
-              <textarea  id="description" name="description"></textarea>
+              <textarea  id="description" className="description"></textarea>
             </li>
              
             <li> <p>Guest List</p> </li>
@@ -99,8 +102,6 @@ class Event extends Component {
           <p>Location</p>
           <p>Description</p>
           <p>guest</p>   */}
-
-        </form>
 
       </div>
     );
