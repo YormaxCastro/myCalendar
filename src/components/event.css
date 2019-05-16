@@ -1,6 +1,6 @@
-h1{
-    padding: 5px;
-}
+Form{ margin: 10px; }
+Form *{ margin: 3px; }
+h1{ padding: 5px; }
 .horizontalRow{
     list-style-type:none;
 
@@ -10,17 +10,16 @@ h1{
     padding: 10px 10px 10px 10px;
     margin: 5px;
 }
-.horizontalRow li *{
-    margin: 5px;
-}
+.horizontalRow li *{ margin: 5px; }
 .horizontalRow .dateRanges{
     display: inline-block;
 }
-
 .eventContainer{
     margin: 0 auto;
     width: 550px;
-    border-style: solid;
+    /* border-style: solid; */
+    outline:1px solid black;
+
 }
 #description{
     height: 300px;
@@ -30,3 +29,5 @@ h1{
     display: inline-flex;
     padding: 2px;
 }
+#submitBut{ float: right; }
+#description{ width: 515px; }

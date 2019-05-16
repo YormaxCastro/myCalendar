@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import  { Form, InputGroup, FormControl } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import "./event.css";
 
 
@@ -19,7 +19,7 @@ class Event extends Component {
 
   }
 
-  saveEvent= () =>{
+  saveEvent = () => {
     console.log(this.state);
     console.log("Hello ");
   }
@@ -41,58 +41,64 @@ class Event extends Component {
     return (
 
       <div className="eventContainer">
-        <h1> Event Details </h1>
-          <Form>
-            <Form.Group controlId="eventDetails">
-              <Form.Label>Event</Form.Label>
-              <Form.Control placeholder="John Doe's Birthday" /> 
-              <Form.Label>Date</Form.Label>
-              <div id="dateRange">
-                < DatePicker
-                selected = {
+        <h1>  Details </h1>
+        <Form>
+          <Form.Group controlId="eventDetails">
+            <Form.Label>Event</Form.Label>
+            <Form.Control placeholder="John Doe's Birthday" />
+            <Form.Label>Date</Form.Label>
+            <div id="dateRange">
+              < DatePicker
+                selected={
                   this.state.startDate
                 }
-                onChange = {
+                onChange={
                   this.handleStartChange
                 }
                 showTimeSelect
-                timeFormat = "HH:mm"
-                timeIntervals = {
+                timeFormat="HH:mm"
+                timeIntervals={
                   15
                 }
-                dateFormat = "MMMM d, yyyy h:mm aa"
-                timeCaption = "time" /
-                  > 
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeCaption="time" /
+              >
               <p> to</p>
               < DatePicker
-              selected = {
-                this.state.endDate
-              }
-              onChange = {
-                this.handleEndChange
-              }
-              showTimeSelect
-              timeFormat = "HH:mm"
-              timeIntervals = {
-                15
-              }
-              dateFormat = "MMMM d, yyyy h:mm aa"
-              timeCaption = "time" /
-                >
+                selected={
+                  this.state.endDate
+                }
+                onChange={
+                  this.handleEndChange
+                }
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={
+                  15
+                }
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeCaption="time" /
+              >
             </div>
 
 
-            </Form.Group>
-            
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows="3" />
-            </Form.Group>
-            
-          </Form>
+          </Form.Group>
 
-        
-          
+          <Form.Group controlId="description">
+            <Form.Label>Description : </Form.Label>
+            <Form.Control as="textarea" rows="3" />
+          </Form.Group>
+          <Button variant="primary" type="submit" id="submitBut">
+            Submit
+          </Button>
+          <br></br>
+          <br></br>
+
+
+        </Form>
+
+
+
 
       </div>
     );
