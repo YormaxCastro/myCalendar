@@ -1,10 +1,8 @@
 Form{ margin: 10px; }
 Form *{ margin: 3px; }
 h1{ padding: 5px; }
-.horizontalRow{
-    list-style-type:none;
-
-}
+html{ background:#e8f5fc; }
+.horizontalRow{ list-style-type:none; }
 .horizontalRow li {
     display: inline;
     padding: 10px 10px 10px 10px;
@@ -15,19 +13,17 @@ h1{ padding: 5px; }
     display: inline-block;
 }
 .eventContainer{
-    margin: 0 auto;
+    margin: 15px auto;
+    position: relative;
     width: 550px;
-    /* border-style: solid; */
     outline:1px solid black;
-
 }
 #description{
     height: 300px;
-    width: 475px;
+    width: 515px;
 }
 #dateRange{
     display: inline-flex;
     padding: 2px;
 }
 #submitBut{ float: right; }
-#description{ width: 515px; }

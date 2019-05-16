@@ -24,7 +24,6 @@ class Event extends Component {
     console.log("Hello ");
   }
   handleStartChange(date) {
-
     this.setState({
       startDate: date
     });
