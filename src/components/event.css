@@ -1,7 +1,6 @@
 Form{ margin: 10px; }
 Form *{ margin: 3px; }
 h1{ padding: 5px; }
-html{ background:#e8f5fc; }
 .horizontalRow{ list-style-type:none; }
 .horizontalRow li {
     display: inline;
