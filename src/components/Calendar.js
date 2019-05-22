@@ -1,26 +1,57 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import 'moment-timezone';
+import moment from 'moment';
+import BigCalendar from 'react-big-calendar';
+import events from '../events';
 import "./calendar.css";
 
 
 class Calendar  extends Component {
-    
+    state = {
+            view: "month",
+            date: new Date(2015, 3, 12),
+            width: 1200 //set accorrding to window size 
+    }
+  componentDidMount() {
+      window.addEventListener("resize", () => {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight
+          });
+      });
+  }
     
     render() {
+        const localizer = BigCalendar.momentLocalizer(moment);
         return (
-            <div>
+            <div id="calendarContainer">
+                      < BigCalendar 
+                      events = {
+                          events
+                      }
+                      localizer = {
+                          localizer
+                      }
+                      defaultView = { this.state.view }
+                      date = { this.state.date }
+                      style = {
+                          {
+                              height: 500,
+                              width: this.state.width
+                          }
+                      }
+                      toolbar = {
+                          true
+                      }
 
-             <p>this is { this.props.name }</p>
-             <p> this is { this.props.age } </p>
+                      />
 
             </div>
  
         );
     }
 }
-Calendar.propTypes = {
-    name: PropTypes.string,
-    age: PropTypes.number
-}
+// Calendar.propTypes = {
+//     // name: PropTypes.string,
+//     // age: PropTypes.number
+// }
 export default Calendar;
