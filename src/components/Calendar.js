@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
 import events from '../events';
+import Event from './Event';
 import "./calendar.css";
 
 
@@ -19,9 +20,17 @@ class Calendar  extends Component {
           });
       });
   }
+
     
     render() {
         const localizer = BigCalendar.momentLocalizer(moment);
+        // let components = {
+        //     event: MyEvent, // used by each view (Month, Day, Week)
+        //     toolbar: MyToolbar,
+        //     agenda: {
+        //         event: MyAgendaEvent // with the agenda view use a different component to render events
+        //     }
+        // }
         return (
             <div id="calendarContainer">
                       < BigCalendar 
@@ -42,6 +51,11 @@ class Calendar  extends Component {
                       toolbar = {
                           true
                       }
+                    //   components = {
+                    //       {
+                    //           event: <Event/>
+                    //       }
+                    //   }
 
                       />
 
