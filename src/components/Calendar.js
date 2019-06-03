@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
 import events from '../events';
+import eventComponent from './eventComponent';
 import Event from './Event';
 import "./calendar.css";
 
@@ -51,11 +52,13 @@ class Calendar  extends Component {
                       toolbar = {
                           true
                       }
-                    //   components = {
-                    //       {
-                    //           event: <Event/>
-                    //       }
-                    //   }
+
+                     components = {
+                           {
+                               event: eventComponent
+
+                            }
+                        }
 
                       />
 
