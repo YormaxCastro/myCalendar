@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { tsThisType } from '@babel/types';
 
  class eventComponent  extends Component {
      constructor(props){
@@ -6,20 +7,20 @@ import React, { Component } from 'react';
          this.state={
              title: props.title
          }
-         console.log(this.state);
+         this.onClick = this.onClick.bind(this);
+        
      }
 
-    popoverButtonClickHandler = (e) => {
-        //handle button click
-    }
-
+     onClick= ()=> {
+         console.log("onCLick fired for "+ this.props.title);
+     }
 
     render() {
         return (
-            <div>
-                <p> { this.state.title } </p>
-                
+            <div class="eventRibbon" >
+                <p onClick={ ()=> { this.onClick() } }> { this.state.title } </p>
             </div>
+                
         );
     }
 }

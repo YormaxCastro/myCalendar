@@ -17,6 +17,10 @@ h1{ padding: 5px; }
     width: 550px;
     outline:1px solid black;
 }
+.eventRibbon {
+    height: 20px;
+    border-radius: 25px;
+}
 #description{
     height: 300px;
     width: 515px;
