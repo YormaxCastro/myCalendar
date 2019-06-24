@@ -7,9 +7,10 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import {createStore} from 'redux';
+import allReducers from './reducers';
 
-const store = createStore();
-
+const store = createStore(allReducers);
+console.log(store);
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
