@@ -1,4 +1,4 @@
-export default function EventReducer(){
+export default function EventReducer() {
     return [
         {
             'title': 'All Day Event very long title',
