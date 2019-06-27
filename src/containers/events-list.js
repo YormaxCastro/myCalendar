@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 
 class EventsList extends Component {
 
+  createEventList() {
+    return this.props.events.map((event) => {
+      return (
+        <li key={event.id}>{event.title}</li>
+      );
+    });
+  }
+
   render() {
     return (
-      <ul>
-        <li>one</li>
-        <li>two</li>
-        <li>three</li>
-        <li>three</li>
-      </ul>
+      <ul> {this.createEventList()} </ul>
     );
   }
 }
