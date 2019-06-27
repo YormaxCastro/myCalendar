@@ -10,6 +10,7 @@ class EventsList extends Component {
         <li>one</li>
         <li>two</li>
         <li>three</li>
+        <li>three</li>
       </ul>
     );
   }
