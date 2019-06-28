@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { selectEvent } from '../actions/index';
 
 class EventsList extends Component {
 
   createEventList() {
     return this.props.events.map((event) => {
       return (
-        <li key={event.id}>{event.title}</li>
+        <li
+          key={event.id}
+          onClick={() => this.props.selectEvent(event)}
+        > {event.title}</li >
       );
     });
   }
@@ -26,4 +30,8 @@ function mapStateToProps(state) {
 
 }
 
-export default connect(mapStateToProps)(EventsList);
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({ selectEvent: selectEvent }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(EventsList);
