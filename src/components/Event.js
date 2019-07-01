@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import { Form, Button } from 'react-bootstrap';
-import "./event.css";
+import "../styles/event.css";
 
 
 

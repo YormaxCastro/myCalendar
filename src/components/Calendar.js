@@ -4,8 +4,7 @@ import BigCalendar from 'react-big-calendar';
 import events from '../events';
 import eventComponent from './eventComponent';
 import Event from './Event';
-import "./calendar.css";
-
+import '../styles/calendar.css';
 
 class Calendar  extends Component {
     state = {
