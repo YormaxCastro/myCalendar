@@ -11,13 +11,24 @@ import { Provider } from 'react-redux';
 import allReducers from './reducers';
 import View from './components/template';
 import { template } from '@babel/core';
+import eventForm from './components/eventForm';
+import { Router, Route } from 'react-router';
+import {createBrowserHistory} from 'history';
+import AppRouter from './components/routingTemplate';
+
 
 const store = createStore(allReducers);
 console.log(store);
 ReactDOM.render(
-  <Provider store={store}>
+  <div>
+    <Provider store={store}>
+    
     <View></View>
-  </Provider>
+
+    </Provider>
+    <AppRouter></AppRouter>
+
+  </div>
   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
