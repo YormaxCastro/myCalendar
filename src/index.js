@@ -15,6 +15,7 @@ import eventForm from './components/eventForm';
 import { Router, Route } from 'react-router';
 import {createBrowserHistory} from 'history';
 import AppRouter from './components/routingTemplate';
+import EventsList from './containers/events-list';
 
 
 const store = createStore(allReducers);
@@ -23,10 +24,14 @@ ReactDOM.render(
   <div>
     <Provider store={store}>
     
-    <View></View>
+        <Router history= {history}>
+                <Route exact path="/" component={EventsList}>
+                  <Route component={AppRouter}></Route>
+                  <Route path="/form" component={eventForm}></Route>
+                </Route>
+        </Router>
 
     </Provider>
-    <AppRouter></AppRouter>
 
   </div>
   , document.getElementById('root'));
