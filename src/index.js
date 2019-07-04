@@ -11,9 +11,8 @@ import { Provider } from 'react-redux';
 import allReducers from './reducers';
 import View from './components/template';
 import { template } from '@babel/core';
-import eventForm from './components/eventForm';
+import eventForm from './components/EventForm';
 import { Router, Route } from 'react-router';
-import {createBrowserHistory} from 'history';
 import AppRouter from './components/routingTemplate';
 import EventsList from './containers/events-list';
 
@@ -23,17 +22,14 @@ console.log(store);
 ReactDOM.render(
   <div>
     <Provider store={store}>
-    
-        <Router history= {history}>
-                <Route exact path="/" component={EventsList}>
-                  <Route component={AppRouter}></Route>
-                  <Route path="/form" component={eventForm}></Route>
-                </Route>
-        </Router>
+
+      <Router>
+        <Route path="/form" component={eventForm}></Route>
+      </Router>
 
     </Provider>
 
-  </div>
+  </div >
   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
