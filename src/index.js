@@ -11,7 +11,8 @@ import { Provider } from 'react-redux';
 import allReducers from './reducers';
 import View from './components/template';
 import { template } from '@babel/core';
-import { Router, Route } from 'react-router';
+import { Route } from 'react-router';
+import { BrowserRouter as Router } from 'react-router-dom';
 import AppRouter from './components/routingTemplate';
 import EventsList from './containers/events-list';
 import Calendar from './components/Calendar';
@@ -22,7 +23,7 @@ console.log(store);
 ReactDOM.render(
   <div>
     <Provider store={store}>
-
+      <p>Home</p>
       <Router>
         <Route path="/" exact strict component={Calendar}></Route>
         <Route path="/form" exact component={EventForm}></Route>
