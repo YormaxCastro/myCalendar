@@ -3,25 +3,27 @@ import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
 import events from '../events';
 import eventComponent from './eventComponent';
+import { connect } from 'react-redux';
 import Event from './Event';
 import '../styles/calendar.css';
 
-class Calendar  extends Component {
+class Calendar extends Component {
     state = {
-            view: "month",
-            date: new Date(2015, 3, 12),
-            width: 1200 //set accorrding to window size 
+        view: "month",
+        date: new Date(2015, 3, 12),
+        width: 1200 //set accorrding to window size 
     }
-  componentDidMount() {
-      window.addEventListener("resize", () => {
-        this.setState({
-            width: window.innerWidth,
-            height: window.innerHeight
-          });
-      });
-  }
+    componentDidMount() {
 
-    
+        window.addEventListener("resize", () => {
+            this.setState({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+        });
+    }
+
+
     render() {
         const localizer = BigCalendar.momentLocalizer(moment);
         // let components = {
@@ -33,41 +35,45 @@ class Calendar  extends Component {
         // }
         return (
             <div id="calendarContainer">
-                      < BigCalendar 
-                      events = {
-                          events
-                      }
-                      localizer = {
-                          localizer
-                      }
-                      defaultView = { this.state.view }
-                      date = { this.state.date }
-                      style = {
-                          {
-                              height: 500,
-                              width: this.state.width
-                          }
-                      }
-                      toolbar = {
-                          true
-                      }
-
-                     components = {
-                           {
-                               event: eventComponent
-
-                            }
+                < BigCalendar
+                    events={
+                        events
+                    }
+                    localizer={
+                        localizer
+                    }
+                    defaultView={this.state.view}
+                    date={this.state.date}
+                    style={
+                        {
+                            height: 500,
+                            width: this.state.width
                         }
+                    }
+                    toolbar={
+                        true
+                    }
 
-                      />
+                    components={
+                        {
+                            event: eventComponent
+
+                        }
+                    }
+
+                />
 
             </div>
- 
+
         );
     }
+}
+function mapStateToProps(state) {
+    console.log(state);
+    return { event: state.activeEvent };
 }
 // Calendar.propTypes = {
 //     // name: PropTypes.string,
 //     // age: PropTypes.number
 // }
-export default Calendar;
+export default connect(mapStateToProps)(Calendar);
