@@ -6,6 +6,7 @@ import eventComponent from './eventComponent';
 import { connect } from 'react-redux';
 import Event from './Event';
 import '../styles/calendar.css';
+import { stat } from 'fs';
 
 class Calendar extends Component {
     state = {
@@ -26,6 +27,7 @@ class Calendar extends Component {
 
     render() {
         const localizer = BigCalendar.momentLocalizer(moment);
+        console.log(this.state);
         // let components = {
         //     event: MyEvent, // used by each view (Month, Day, Week)
         //     toolbar: MyToolbar,
@@ -37,7 +39,8 @@ class Calendar extends Component {
             <div id="calendarContainer">
                 < BigCalendar
                     events={
-                        events
+                        this.state.events
+
                     }
                     localizer={
                         localizer
@@ -69,8 +72,8 @@ class Calendar extends Component {
     }
 }
 function mapStateToProps(state) {
-    console.log(state);
-    return { event: state.activeEvent };
+    console.log(state.events);
+    return { events: state.events };
 }
 // Calendar.propTypes = {
 //     // name: PropTypes.string,
