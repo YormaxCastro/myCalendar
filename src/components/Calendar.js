@@ -27,20 +27,11 @@ class Calendar extends Component {
 
     render() {
         const localizer = BigCalendar.momentLocalizer(moment);
-        console.log(this.state);
-        // let components = {
-        //     event: MyEvent, // used by each view (Month, Day, Week)
-        //     toolbar: MyToolbar,
-        //     agenda: {
-        //         event: MyAgendaEvent // with the agenda view use a different component to render events
-        //     }
-        // }
         return (
             <div id="calendarContainer">
                 < BigCalendar
                     events={
-                        this.state.events
-
+                        this.props.events
                     }
                     localizer={
                         localizer
@@ -72,7 +63,7 @@ class Calendar extends Component {
     }
 }
 function mapStateToProps(state) {
-    console.log(state.events);
+    // console.log(state.events);
     return { events: state.events };
 }
 // Calendar.propTypes = {
