@@ -15,8 +15,8 @@ class eventComponent extends Component {
     }
 
     onClick = () => {
-        console.log("onCLick fired for " + this.props.title);
-        console.log(this.state);
+        console.log(this.props.event);
+        this.props.selectEvent(this.props.event);
     }
 
     render() {
@@ -29,7 +29,7 @@ class eventComponent extends Component {
     }
 }
 function mapStateToProps(state) {
-    console.log(state);
+    // console.log(state);
     return { activeEvent: state.activeEvent };
 }
 function matchDispatchToProps(dispatch) {
