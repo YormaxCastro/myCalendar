@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { tsThisType } from '@babel/types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { selectEvent } from '../actions/index';
 
 class eventComponent extends Component {
@@ -21,12 +22,17 @@ class eventComponent extends Component {
 
     render() {
         return (
-            <div class="eventRibbon" >
-                <p onClick={() => { this.onClick() }}> {this.state.title} </p>
-                {/* // Redirect to a new component page  */}
+            <Router>
+                <div class="eventRibbon" >
+                    <Link to="/event/">
+                        <p onClick={() => { this.onClick() }}> {this.state.title} </p>
+                    </Link>
 
-            </div>
 
+                </div>
+
+                <Route path="/event/" exact component={eventComponent} />
+            </Router>
         );
     }
 }
