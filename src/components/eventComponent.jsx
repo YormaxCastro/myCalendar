@@ -23,6 +23,8 @@ class eventComponent extends Component {
         return (
             <div class="eventRibbon" >
                 <p onClick={() => { this.onClick() }}> {this.state.title} </p>
+                {/* // Redirect to a new component page  */}
+
             </div>
 
         );
