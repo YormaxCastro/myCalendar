@@ -12,6 +12,7 @@ class eventComponent extends Component {
             title: props.title
         }
         this.onClick = this.onClick.bind(this);
+        this.routeChangeToForm = this.routeChangeToForm.bind(this);
 
     }
 
@@ -19,19 +20,21 @@ class eventComponent extends Component {
         console.log(this.props.event);
         this.props.selectEvent(this.props.event);
     }
+    routeChangeToForm() {
+        let path = `event`;
+        this.props.history.push(path);
+    }
 
     render() {
         return (
             <Router>
                 <div class="eventRibbon" >
-                    <Link to="/event/">
-                        <p onClick={() => { this.onClick() }}> {this.state.title} </p>
-                    </Link>
+                    <p onClick={() => { this.routeChangeToForm() }}> {this.state.title} </p>
 
 
                 </div>
 
-                <Route path="/event/" exact component={eventComponent} />
+                <Route path="/event" exact component={eventComponent} />
             </Router>
         );
     }
