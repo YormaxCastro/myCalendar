@@ -3,7 +3,13 @@ import { tsThisType } from '@babel/types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import createHistory from 'history/createBrowserHistory'
 import { selectEvent } from '../actions/index';
+
+var createBrowserHistory = require('history').createBrowserHistory;
+const history = createBrowserHistory();
+const location = history.location;
+
 
 class eventComponent extends Component {
     constructor(props) {
@@ -21,8 +27,8 @@ class eventComponent extends Component {
         this.props.selectEvent(this.props.event);
     }
     routeChangeToForm() {
-        let path = `event`;
-        this.props.history.push(path);
+        let path = "event";
+        history.push(path);
     }
 
     render() {
