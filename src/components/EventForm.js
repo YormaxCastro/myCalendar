@@ -5,7 +5,7 @@ import "../styles/event.css";
 
 
 
-class EventForm extends Component {
+class eventForm extends Component {
 
   constructor(props) {
     super(props);
@@ -104,4 +104,4 @@ class EventForm extends Component {
   }
 }
 
-export default EventForm;
+export default eventForm;

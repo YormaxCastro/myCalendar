@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
-import events from '../events';
 import eventComponent from './eventComponent';
 import { connect } from 'react-redux';
-import Event from './Event';
 import '../styles/calendar.css';
-import { stat } from 'fs';
 
-class Calendar extends Component {
+class calendar extends Component {
     state = {
         view: "month",
         date: new Date(2015, 3, 12),
         width: 1200 //set accorrding to window size 
+    }
+    handleNavigate() {
+        this.setState(this.state);
     }
     componentDidMount() {
 
@@ -33,6 +33,7 @@ class Calendar extends Component {
                     events={
                         this.props.events
                     }
+                    onNavigate={this.handleNavigate}
                     localizer={
                         localizer
                     }
@@ -63,11 +64,6 @@ class Calendar extends Component {
     }
 }
 function mapStateToProps(state) {
-    // console.log(state.events);
     return { events: state.events };
 }
-// Calendar.propTypes = {
-//     // name: PropTypes.string,
-//     // age: PropTypes.number
-// }
-export default connect(mapStateToProps)(Calendar);
+export default connect(mapStateToProps)(calendar);

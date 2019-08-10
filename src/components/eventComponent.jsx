@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { tsThisType } from '@babel/types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import createHistory from 'history/createBrowserHistory'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { selectEvent } from '../actions/index';
 
-var createBrowserHistory = require('history').createBrowserHistory;
+let createBrowserHistory = require('history').createBrowserHistory;
 const history = createBrowserHistory();
-const location = history.location;
 
 
 class eventComponent extends Component {
@@ -34,7 +31,7 @@ class eventComponent extends Component {
     render() {
         return (
             <Router>
-                <div class="eventRibbon" >
+                <div className="eventRibbon" >
                     <p onClick={() => { this.routeChangeToForm() }}> {this.state.title} </p>
 
 
@@ -46,7 +43,6 @@ class eventComponent extends Component {
     }
 }
 function mapStateToProps(state) {
-    // console.log(state);
     return { activeEvent: state.activeEvent };
 }
 function matchDispatchToProps(dispatch) {
