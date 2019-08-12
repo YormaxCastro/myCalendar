@@ -21,6 +21,7 @@ ReactDOM.render(
       <Router>
         <Route path="/" exact strict component={calendar}></Route>
         <Route path="/form" exact component={eventForm}></Route>
+        <Route path="/event" exact component={eventForm}></Route>
       </Router>
 
     </Provider>

@@ -25,7 +25,7 @@ class eventComponent extends Component {
     }
     routeChangeToForm() {
         let path = "event";
-        history.push(path);
+        this.context.history.push(path);
     }
 
     render() {
