@@ -18,10 +18,11 @@ const store = createStore(allReducers);
 ReactDOM.render(
   <div>
     <Provider store={store}>
+
       <Router>
         <Route path="/" exact strict component={calendar}></Route>
         <Route path="/form" exact component={eventForm}></Route>
-        <Route path="/event" exact component={eventForm}></Route>
+        <Route path="/event" exact component={event}></Route>
       </Router>
 
     </Provider>
