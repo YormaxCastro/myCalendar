@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
 class EventDetail extends Component {
@@ -24,4 +25,4 @@ function mapStateToProps(state) {
   return { event: state.activeEvent };
 }
 
-export default connect(mapStateToProps)(EventDetail);
+export default withRouter(connect(mapStateToProps)(EventDetail));

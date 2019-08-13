@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectEvent } from '../actions/index';
+import { withRouter } from 'react-router-dom';
+
 
 class EventsList extends Component {
 
@@ -34,4 +36,4 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({ selectEvent: selectEvent }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(EventsList);
+export default withRouter(connect(mapStateToProps, matchDispatchToProps)(EventsList));

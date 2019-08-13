@@ -9,9 +9,9 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import allReducers from './reducers';
 import { Route } from 'react-router';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import calendar from './components/calendar';
-import eventForm from './components/eventForm';
+import eventForm from './components/event-form';
 
 const store = createStore(allReducers);
 
@@ -20,9 +20,11 @@ ReactDOM.render(
     <Provider store={store}>
 
       <Router>
-        <Route path="/" exact strict component={calendar}></Route>
-        <Route path="/form" exact component={eventForm}></Route>
-        <Route path="/event" exact component={event}></Route>
+        <Switch>
+          <Route path="/" exact strict component={calendar}></Route>
+          <Route path="/forms/" exact component={eventForm}></Route>
+          <Route path="/form" exact component={Event}></Route>
+        </Switch>
       </Router>
 
     </Provider>

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, withRouter, Link, Switch } from "react-router-dom";
 import { selectEvent } from '../actions/index';
+import eventForm from './event-form';
 
-let createBrowserHistory = require('history').createBrowserHistory;
-const history = createBrowserHistory();
 
 
 class eventComponent extends Component {
@@ -30,15 +29,10 @@ class eventComponent extends Component {
 
     render() {
         return (
-            <Router>
-                <div className="eventRibbon" >
-                    <p onClick={() => { this.routeChangeToForm() }}> {this.state.title} </p>
+            <div className="eventRibbon" >
+                <Link to="/forms/"> <p>{this.state.title}</p> </Link>
+            </div>
 
-
-                </div>
-
-                <Route path="/event" exact component={eventComponent} />
-            </Router>
         );
     }
 }
@@ -49,5 +43,5 @@ function matchDispatchToProps(dispatch) {
     return bindActionCreators({ selectEvent: selectEvent }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(eventComponent);
+export default withRouter(connect(mapStateToProps, matchDispatchToProps)(eventComponent));
 

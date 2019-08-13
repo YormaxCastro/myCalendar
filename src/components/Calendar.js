@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
-import eventComponent from './eventComponent';
+import eventComponent from './event-component';
 import { connect } from 'react-redux';
 import '../styles/calendar.css';
 
