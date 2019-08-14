@@ -30,7 +30,7 @@ class eventComponent extends Component {
     render() {
         return (
             <div className="eventRibbon" >
-                <Link to="/forms/"> <p>{this.state.title}</p> </Link>
+                <Link to="/forms/" onClick={this.onClick}> <p>{this.state.title}</p> </Link>
             </div>
 
         );
