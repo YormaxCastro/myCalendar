@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, withRouter, Link, Switch } from "react-router-dom";
 import { selectEvent } from '../actions/index';
-import eventForm from './event-form';
 
 
 
@@ -30,7 +29,7 @@ class eventComponent extends Component {
     render() {
         return (
             <div className="eventRibbon" >
-                <Link to="/forms/" onClick={this.onClick}> <p>{this.state.title}</p> </Link>
+                <Link to="/forms/" onClick={this.onClick} style={{ textDecoration: 'none', color: 'white' }}> <p>{this.state.title}</p> </Link>
             </div>
 
         );

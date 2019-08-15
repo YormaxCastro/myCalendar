@@ -70,8 +70,7 @@ class eventForm extends Component {
                   15
                 }
                 dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time" /
-              >
+                timeCaption="time" />
               <p> to</p>
               < DatePicker
                 selected={

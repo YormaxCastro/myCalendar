@@ -21,6 +21,11 @@ h1{ padding: 5px; }
     height: 20px;
     border-radius: 25px;
 }
+.eventRibbon Link {
+    color: white;
+    textDecoration: none;
+
+}
 #description{
     height: 300px;
     width: 515px;
