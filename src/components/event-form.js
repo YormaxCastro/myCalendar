@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, withRouter, Link, Switch } from "react-router-dom";
+import { connect } from 'react-redux';
+import { selectEvent } from '../actions/index';
+import { bindActionCreators } from 'redux';
 import DatePicker from "react-datepicker";
 import { Form, Button } from 'react-bootstrap';
 import "../styles/event.css";
@@ -10,9 +14,11 @@ class eventForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: "",
+      description: "",
       startDate: new Date(),
       endDate: new Date(),
-      location: null
+      location: null,
     };
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
@@ -34,9 +40,13 @@ class eventForm extends Component {
       endDate: date
     });
   }
-
-
   render() {
+    let selectedEvent = this.props.activeEvent;
+    if (JSON.stringify(selectedEvent) != "{}") {
+      this.handleStartChange(selectedEvent.start);
+      this.handleEndChange(selectedEvent.end);
+
+    }
     return (
 
       <div className="eventContainer">
@@ -103,5 +113,12 @@ class eventForm extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return { activeEvent: state.activeEvent };
+}
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({ selectEvent: selectEvent }, dispatch)
+}
 
-export default eventForm;
+
+export default withRouter(connect(mapStateToProps, matchDispatchToProps)(eventForm));
