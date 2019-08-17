@@ -33,6 +33,9 @@ class eventForm extends Component {
     this.setState({
       startDate: date
     });
+    // this.setState({
+    //   startDate: date
+    // });
     console.log(this.state.startDate);
   }
   handleEndChange(date) {
