@@ -33,33 +33,45 @@ class eventForm extends Component {
     this.setState({
       startDate: date
     });
-    // this.setState({
-    //   startDate: date
-    // });
-    console.log(this.state.startDate);
   }
   handleEndChange(date) {
     this.setState({
       endDate: date
     });
   }
+  handleChange (event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+
   render() {
     let selectedEvent = this.props.activeEvent;
+    
     if (JSON.stringify(selectedEvent) != "{}") {
-      this.handleStartChange(selectedEvent.start);
-      this.handleEndChange(selectedEvent.end);
-
+       this.state = {
+        title: selectedEvent.title,
+        description: selectedEvent.id,
+        startDate: selectedEvent.start,
+        endDate: selectedEvent.end
+       }
+      console.log(this.state);
     }
+
     return (
 
       <div className="eventContainer">
         <h1>  Details </h1>
         <Form>
           <Form.Group controlId="eventDetails">
+            
             <Form.Label>Event</Form.Label>
-            <Form.Control placeholder="John Doe's Birthday" />
+            <Form.Control placeholder="John Doe's Birthday" value={ this.state.title } onChange={this.handleChange} />
             <Form.Label>Date</Form.Label>
+           
             <div id="dateRange">
+             
               < DatePicker
                 selected={
                   this.state.startDate
@@ -74,7 +86,9 @@ class eventForm extends Component {
                 }
                 dateFormat="MMMM d, yyyy h:mm aa"
                 timeCaption="time" />
-              <p> to</p>
+             
+               <Form.Label> to </Form.Label>
+             
               < DatePicker
                 selected={
                   this.state.endDate
@@ -88,8 +102,7 @@ class eventForm extends Component {
                   15
                 }
                 dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time" /
-              >
+                timeCaption="time" />
             </div>
 
 
@@ -99,9 +112,12 @@ class eventForm extends Component {
             <Form.Label>Description : </Form.Label>
             <Form.Control as="textarea" rows="3" />
           </Form.Group>
+
           <Button variant="primary" type="submit" id="submitBut">
             Submit
           </Button>
+
+
           <br></br>
           <br></br>
 
