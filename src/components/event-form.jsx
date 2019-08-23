@@ -22,6 +22,7 @@ class eventForm extends Component {
     };
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
   }
 
@@ -44,6 +45,7 @@ class eventForm extends Component {
       value: event.target.value
     });
   }
+    
 
 
   render() {
@@ -56,7 +58,7 @@ class eventForm extends Component {
         startDate: selectedEvent.start,
         endDate: selectedEvent.end
        }
-      console.log(this.state);
+      console.log("render");
     }
 
     return (
@@ -67,7 +69,7 @@ class eventForm extends Component {
           <Form.Group controlId="eventDetails">
             
             <Form.Label>Event</Form.Label>
-            <Form.Control placeholder="John Doe's Birthday" value={ this.state.title } onChange={this.handleChange} />
+            <Form.Control placeholder="John Doe's Birthday" defaultValue={this.state.title} onChange={ this.handleChange } />
             <Form.Label>Date</Form.Label>
            
             <div id="dateRange">
