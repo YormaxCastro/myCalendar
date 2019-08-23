@@ -45,22 +45,30 @@ class eventForm extends Component {
       value: event.target.value
     });
   }
-    
+  componentWillMount() {
+      let selectedEvent = this.props.activeEvent;
 
-
-  render() {
-    let selectedEvent = this.props.activeEvent;
-    
-    if (JSON.stringify(selectedEvent) != "{}") {
-       this.state = {
+    if ( JSON.stringify(selectedEvent) !== "{}") {
+       this.setState ({
         title: selectedEvent.title,
         description: selectedEvent.id,
         startDate: selectedEvent.start,
         endDate: selectedEvent.end
        }
-      console.log("render");
+      //console.log("Mounted");
+    );
+  }
+}
+    componentWillUnmount() {
+      console.log("Unmounted");
     }
+    
+    
+  
+    
 
+
+  render() {
     return (
 
       <div className="eventContainer">
