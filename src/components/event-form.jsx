@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, withRouter, Link, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
-import { selectEvent } from '../actions/index';
+import { selectEvent, submitEvent } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import DatePicker from "react-datepicker";
 import { Form, Button } from 'react-bootstrap';
@@ -27,10 +27,6 @@ class eventForm extends Component {
 
   }
 
-  saveEvent = () => {
-    console.log(this.state);
-    console.log("Hello ");
-  }
   handleStartChange(date) {
     this.setState({
       startDate: date
@@ -48,6 +44,10 @@ class eventForm extends Component {
   }
   componentWillMount() {
     let selectedEvent = this.props.activeEvent;
+    console.log("the prop is ");
+    console.log(this.props);
+    console.log(this.props.allEvents);
+    this.props.submitEvent(this.props.allEvents, selectedEvent);
 
     if (JSON.stringify(selectedEvent) !== "{}") {
       this.setState({
@@ -124,7 +124,7 @@ class eventForm extends Component {
             <Form.Control as="textarea" rows="3" />
           </Form.Group>
 
-          <Button variant="primary" type="submit" id="submitBut">
+          <Button variant="primary" type="submit" id="submitBut" onClick={this.props.submitEvent} >
             Submit
           </Button>
 
@@ -143,10 +143,17 @@ class eventForm extends Component {
   }
 }
 function mapStateToProps(state) {
-  return { activeEvent: state.activeEvent };
+  return {
+    activeEvent: state.activeEvent,
+    allEvents: state.events
+  };
 }
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ selectEvent: selectEvent }, dispatch)
+  return bindActionCreators(
+    {
+      selectEvent: selectEvent,
+      submitEvent: submitEvent
+    }, dispatch)
 }
 
 

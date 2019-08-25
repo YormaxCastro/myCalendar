@@ -5,3 +5,12 @@ export const selectEvent = (event) => {
     payload: event
   }
 };
+export const submitEvent = (allEvents, event) => {
+  console.log(allEvents);
+  console.log("in the submit Event");
+
+  return {
+    type: "EVENT_SUBMITTED",
+    payload: event
+  }
+};
