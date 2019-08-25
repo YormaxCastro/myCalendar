@@ -13,23 +13,22 @@ class eventComponent extends Component {
             title: props.title
         }
         this.onClick = this.onClick.bind(this);
-        //this.routeChangeToForm = this.routeChangeToForm.bind(this);
-
     }
 
     onClick = () => {
-        console.log(this.props.event);
         this.props.selectEvent(this.props.event);
     }
-    // routeChangeToForm() {
-    //     let path = "event/";
-    //     this.context.history.push(path);
-    // }
-
+    getStyle() {
+        return {
+            textDecoration: 'none',
+            color: 'white'
+        }
+    }
     render() {
+        let title = <p> {this.state.title} </p>;
         return (
             <div className="eventRibbon" >
-                <Link to="/event/" onClick={this.onClick} style={{ textDecoration: 'none', color: 'white' }}> <p>{this.state.title}</p> </Link>
+                <Link to="/event/" onClick={this.onClick} style={this.getStyle()}> {title} </Link>
             </div>
 
         );

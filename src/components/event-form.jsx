@@ -19,6 +19,7 @@ class eventForm extends Component {
       startDate: new Date(),
       endDate: new Date(),
       location: null,
+      isNewEvent: true
     };
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
@@ -40,32 +41,32 @@ class eventForm extends Component {
       endDate: date
     });
   }
-  handleChange (event) {
+  handleChange(event) {
     this.setState({
       value: event.target.value
     });
   }
   componentWillMount() {
-      let selectedEvent = this.props.activeEvent;
+    let selectedEvent = this.props.activeEvent;
 
-    if ( JSON.stringify(selectedEvent) !== "{}") {
-       this.setState ({
+    if (JSON.stringify(selectedEvent) !== "{}") {
+      this.setState({
         title: selectedEvent.title,
         description: selectedEvent.id,
         startDate: selectedEvent.start,
-        endDate: selectedEvent.end
-       }
-      //console.log("Mounted");
-    );
-  }
-}
-    componentWillUnmount() {
-      console.log("Unmounted");
+        endDate: selectedEvent.end,
+        isNewEvent: false
+      }
+      );
     }
-    
-    
-  
-    
+  }
+  componentWillUnmount() {
+    console.log("Unmounted");
+  }
+
+
+
+
 
 
   render() {
@@ -75,13 +76,13 @@ class eventForm extends Component {
         <h1>  Details </h1>
         <Form>
           <Form.Group controlId="eventDetails">
-            
+
             <Form.Label>Event</Form.Label>
-            <Form.Control placeholder="John Doe's Birthday" defaultValue={this.state.title} onChange={ this.handleChange } />
+            <Form.Control placeholder="John Doe's Birthday" defaultValue={this.state.title} onChange={this.handleChange} />
             <Form.Label>Date</Form.Label>
-           
+
             <div id="dateRange">
-             
+
               < DatePicker
                 selected={
                   this.state.startDate
@@ -96,9 +97,9 @@ class eventForm extends Component {
                 }
                 dateFormat="MMMM d, yyyy h:mm aa"
                 timeCaption="time" />
-             
-               <Form.Label> to </Form.Label>
-             
+
+              <Form.Label> to </Form.Label>
+
               < DatePicker
                 selected={
                   this.state.endDate
