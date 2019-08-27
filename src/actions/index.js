@@ -5,9 +5,22 @@ export const selectEvent = (event) => {
     payload: event
   }
 };
-export const submitEvent = (allEvents, event) => {
+export const submitEvent = (allEvents, event, isNewAEvent) => {
   console.log(allEvents);
   console.log("in the submit Event");
+  if(isNewAEvent)
+    allEvents.push(event);
+  else 
+    allEvents= allEvents.map( currEvent =>
+        {
+          if(currEvent.id == event.id){
+          console.log("It exists");
+        }
+      }
+      
+      );
+
+  
 
   return {
     type: "EVENT_SUBMITTED",

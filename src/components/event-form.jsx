@@ -47,7 +47,7 @@ class eventForm extends Component {
     console.log("the prop is ");
     console.log(this.props);
     console.log(this.props.allEvents);
-    this.props.submitEvent(this.props.allEvents, selectedEvent);
+    this.props.submitEvent(this.props.allEvents, selectedEvent,this.props.isNewEvent);
 
     if (JSON.stringify(selectedEvent) !== "{}") {
       this.setState({
