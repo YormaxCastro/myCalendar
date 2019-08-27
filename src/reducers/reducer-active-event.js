@@ -4,6 +4,8 @@ export default function (state = {}, action) {
     case "EVENT_SELECTED":
       return action.payload;
     case "EVENT_SUBMITTED":
+      console.log("IN the payload")
+      //console.log(action.payload);
       return action.payload;
   }
   return state;

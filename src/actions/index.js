@@ -6,24 +6,24 @@ export const selectEvent = (event) => {
   }
 };
 export const submitEvent = (allEvents, event, isNewAEvent) => {
-  console.log(allEvents);
-  console.log("in the submit Event");
-  if(isNewAEvent)
+  //console.log(allEvents);
+  //console.log("in the submit Event");
+  if (isNewAEvent)
     allEvents.push(event);
-  else 
-    allEvents= allEvents.map( currEvent =>
-        {
-          if(currEvent.id == event.id){
-          console.log("It exists");
-        }
+  else {
+    allEvents.map(currEvent => {
+      if (currEvent.id == event.id) {
+        event.desc = "this Event was edited.";
       }
-      
-      );
+      console.log(currEvent);
+    }
+    );
+  }
+  console.log(allEvents);
 
-  
 
   return {
     type: "EVENT_SUBMITTED",
-    payload: event
+    payload: allEvents
   }
 };

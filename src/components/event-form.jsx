@@ -24,6 +24,7 @@ class eventForm extends Component {
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.submitEvent = this.submitEvent.bind(this);
 
   }
 
@@ -38,21 +39,23 @@ class eventForm extends Component {
     });
   }
   handleChange(event) {
-    this.setState({
-      value: event.target.value
-    });
+    let change = {};
+    change[event.target.id] = event.target.value;
+    this.setState(change);
+  }
+  submitEvent(event) {
+    let selectedEvent = {
+      title: this.state.title
+    };
+    console.log(selectedEvent);
+    this.props.submitEvent(this.props.allEvents, selectedEvent, this.props.isNewEvent);
   }
   componentWillMount() {
     let selectedEvent = this.props.activeEvent;
-    console.log("the prop is ");
-    console.log(this.props);
-    console.log(this.props.allEvents);
-    this.props.submitEvent(this.props.allEvents, selectedEvent,this.props.isNewEvent);
-
     if (JSON.stringify(selectedEvent) !== "{}") {
       this.setState({
         title: selectedEvent.title,
-        description: selectedEvent.id,
+        desc: selectedEvent.id,
         startDate: selectedEvent.start,
         endDate: selectedEvent.end,
         isNewEvent: false
@@ -75,7 +78,7 @@ class eventForm extends Component {
       <div className="eventContainer">
         <h1>  Details </h1>
         <Form>
-          <Form.Group controlId="eventDetails">
+          <Form.Group controlId="title">
 
             <Form.Label>Event</Form.Label>
             <Form.Control placeholder="John Doe's Birthday" defaultValue={this.state.title} onChange={this.handleChange} />
