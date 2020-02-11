@@ -5,7 +5,9 @@ import * as serviceWorker from './serviceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { logger } from 'redux-logger';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import allReducers from './reducers';
 import { Route } from 'react-router';
@@ -13,7 +15,10 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import calendar from './components/calendar';
 import eventForm from './components/event-form';
 
-const store = createStore(allReducers);
+const store = createStore(allReducers, composeWithDevTools(
+  applyMiddleware(logger))
+  // other store enhancers if any
+);
 
 ReactDOM.render(
   <div>

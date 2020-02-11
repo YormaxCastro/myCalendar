@@ -25,9 +25,14 @@ class eventForm extends Component {
     this.handleEndChange = this.handleEndChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submitEvent = this.submitEvent.bind(this);
+    //this.routeChange = this.routeChange.bind(this);
+
 
   }
-
+  // routeChange() {
+  //   let path = ``;
+  //   this.props.history.push(path);
+  // }
   handleStartChange(date) {
     this.setState({
       startDate: date
@@ -48,7 +53,7 @@ class eventForm extends Component {
       title: this.state.title
     };
     console.log(selectedEvent);
-    this.props.submitEvent(this.props.allEvents, selectedEvent, this.props.isNewEvent);
+    this.props.submitEvent(selectedEvent);
   }
   componentWillMount() {
     let selectedEvent = this.props.activeEvent;
@@ -64,13 +69,8 @@ class eventForm extends Component {
     }
   }
   componentWillUnmount() {
-    console.log("Unmounted");
+    console.log(this.state);
   }
-
-
-
-
-
 
   render() {
     return (
@@ -130,6 +130,9 @@ class eventForm extends Component {
           <Button variant="primary" type="submit" id="submitBut" onClick={this.props.submitEvent} >
             Submit
           </Button>
+          <Button variant="secondary" onClick={console.log(this.props.allEvents)} >
+            Button
+          </Button>
 
 
           <br></br>
@@ -137,10 +140,6 @@ class eventForm extends Component {
 
 
         </Form>
-
-
-
-
       </div>
     );
   }

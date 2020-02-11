@@ -35,7 +35,10 @@ class eventComponent extends Component {
     }
 }
 function mapStateToProps(state) {
-    return { activeEvent: state.activeEvent };
+    return {
+        allEvents: state.events,
+        activeEvent: state.activeEvent
+    };
 }
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({ selectEvent: selectEvent }, dispatch)

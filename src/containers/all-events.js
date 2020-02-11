@@ -24,8 +24,4 @@ function mapStateToProps(state) {
 
 }
 
-// function matchDispatchToProps(dispatch) {
-//   return bindActionCreators({ selectEvent: selectEvent }, dispatch)
-// }
-
 export default withRouter(connect(mapStateToProps)(EventsList));
