@@ -48,7 +48,7 @@ class eventForm extends Component {
     change[event.target.id] = event.target.value;
     this.setState(change);
   }
-  submitEvent(event) {
+  submitEvent()  {
     let selectedEvent = {
       title: this.state.title
     };
@@ -130,7 +130,7 @@ class eventForm extends Component {
           <Button variant="primary" type="submit" id="submitBut" onClick={this.props.submitEvent} >
             Submit
           </Button>
-          <Button variant="secondary" onClick={console.log(this.props.allEvents)} >
+          <Button variant="secondary" onClick= { this.submitEvent } >
             Button
           </Button>
 

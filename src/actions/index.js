@@ -4,7 +4,7 @@ export const selectEvent = (event) => {
     payload: event
   }
 };
-export const submitEvent = event => {
+export const submitEvent = (event) => {
   return {
     type: "SUBMIT_EVENT",
     payload: event

@@ -12,7 +12,6 @@ let events = [
         'start': new Date(2015, 3, 7),
         'end': new Date(2015, 3, 10)
     },
-
     {
         'id': 3,
         'title': 'DTS STARTS',
