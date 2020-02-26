@@ -5,6 +5,14 @@ export default function (state = {}, action) {
       return action.payload;
     case "SUBMIT_EVENT":
       return action.payload;
+    case "ADD_NUMBER": 
+        state = {
+          ...state,
+           exampleNum: action.payload
+
+
+        }
+      break;
   }
   return state;
 

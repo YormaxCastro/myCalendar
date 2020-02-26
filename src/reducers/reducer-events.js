@@ -103,7 +103,24 @@ let events = [
         'end': new Date(2015, 3, 22, 2, 0, 0)
     }
 ];
-export default function EventReducer() {
-    return events;
 
-} 
+const EventsReducer = ( state = { events }, action) => {
+
+    switch (action.type) { // set all action here and return its payload  
+        case "EVENT_SELECTED":
+           break;
+        case "SUBMIT_EVENT":
+            break;
+        case "ADD_EVENT":
+            state =  {
+                ...state,
+                events: [...state.events, action.payload]
+            }
+            break;
+            
+    }
+    return state
+
+}
+export default EventsReducer
+

@@ -1,162 +1,96 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, withRouter, Link, Switch } from "react-router-dom";
-import { connect } from 'react-redux';
-import { selectEvent, submitEvent } from '../actions/index';
-import { bindActionCreators } from 'redux';
-import DatePicker from "react-datepicker";
-import { Form, Button } from 'react-bootstrap';
-import "../styles/event.css";
+// import React, { Component } from 'react';
+// import { BrowserRouter as Router, Route, withRouter, Link, Switch } from "react-router-dom";
+// import { connect } from 'react-redux';
+// import { selectEvent, submitEvent } from '../actions/index';
+// import { bindActionCreators } from 'redux';
+// import DatePicker from "react-datepicker";
+// import { Form, Button } from 'react-bootstrap';
+// import "../styles/event.css";
 
 
 
-class eventForm extends Component {
+// class eventForm extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      description: "",
-      startDate: new Date(),
-      endDate: new Date(),
-      location: null,
-      isNewEvent: true
-    };
-    this.handleStartChange = this.handleStartChange.bind(this);
-    this.handleEndChange = this.handleEndChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.submitEvent = this.submitEvent.bind(this);
-    //this.routeChange = this.routeChange.bind(this);
-
-
-  }
-  // routeChange() {
-  //   let path = ``;
-  //   this.props.history.push(path);
-  // }
-  handleStartChange(date) {
-    this.setState({
-      startDate: date
-    });
-  }
-  handleEndChange(date) {
-    this.setState({
-      endDate: date
-    });
-  }
-  handleChange(event) {
-    let change = {};
-    change[event.target.id] = event.target.value;
-    this.setState(change);
-  }
-  submitEvent()  {
-    let selectedEvent = {
-      title: this.state.title
-    };
-    console.log(selectedEvent);
-    this.props.submitEvent(selectedEvent);
-  }
-  componentWillMount() {
-    let selectedEvent = this.props.activeEvent;
-    if (JSON.stringify(selectedEvent) !== "{}") {
-      this.setState({
-        title: selectedEvent.title,
-        desc: selectedEvent.id,
-        startDate: selectedEvent.start,
-        endDate: selectedEvent.end,
-        isNewEvent: false
-      }
-      );
-    }
-  }
-  componentWillUnmount() {
-    console.log(this.state);
-  }
-
-  render() {
-    return (
-
-      <div className="eventContainer">
-        <h1>  Details </h1>
-        <Form>
-          <Form.Group controlId="title">
-
-            <Form.Label>Event</Form.Label>
-            <Form.Control placeholder="John Doe's Birthday" defaultValue={this.state.title} onChange={this.handleChange} />
-            <Form.Label>Date</Form.Label>
-
-            <div id="dateRange">
-
-              < DatePicker
-                selected={
-                  this.state.startDate
-                }
-                onChange={
-                  this.handleStartChange
-                }
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={
-                  15
-                }
-                dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time" />
-
-              <Form.Label> to </Form.Label>
-
-              < DatePicker
-                selected={
-                  this.state.endDate
-                }
-                onChange={
-                  this.handleEndChange
-                }
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={
-                  15
-                }
-                dateFormat="MMMM d, yyyy h:mm aa"
-                timeCaption="time" />
-            </div>
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       title: "",
+//       description: "",
+//       startDate: new Date(),
+//       endDate: new Date(),
+//       location: null,
+//       isNewEvent: true
+//     };
+//     this.handleStartChange = this.handleStartChange.bind(this);
+//     this.handleEndChange = this.handleEndChange.bind(this);
+//     this.handleChange = this.handleChange.bind(this);
+//     this.submitEvent = this.submitEvent.bind(this);
+//     //this.routeChange = this.routeChange.bind(this);
 
 
-          </Form.Group>
+//   }
+//   // routeChange() {
+//   //   let path = ``;
+//   //   this.props.history.push(path);
+//   // }
+//   handleStartChange(date) {
+//     this.setState({
+//       startDate: date
+//     });
+//   }
+//   handleEndChange(date) {
+//     this.setState({
+//       endDate: date
+//     });
+//   }
+//   handleChange(event) {
+//     let change = {};
+//     change[event.target.id] = event.target.value;
+//     this.setState(change);
+//   }
+//   submitEvent()  {
+//     let selectedEvent = {
+//       title: this.state.title
+//     };
+//     console.log(selectedEvent);
+//     this.props.submitEvent(selectedEvent);
+//   }
+//   componentWillMount() {
+//     let selectedEvent = this.props.activeEvent;
+//     if (JSON.stringify(selectedEvent) !== "{}") {
+//       this.setState({
+//         title: selectedEvent.title,
+//         desc: selectedEvent.id,
+//         startDate: selectedEvent.start,
+//         endDate: selectedEvent.end,
+//         isNewEvent: false
+//       }
+//       );
+//     }
+//   }
+//   componentWillUnmount() {
+//     console.log(this.state);
+//   }
 
-          <Form.Group controlId="description">
-            <Form.Label>Description : </Form.Label>
-            <Form.Control as="textarea" rows="3" />
-          </Form.Group>
+//   render() {
+//     return (
 
-          <Button variant="primary" type="submit" id="submitBut" onClick={this.props.submitEvent} >
-            Submit
-          </Button>
-          <Button variant="secondary" onClick= { this.submitEvent } >
-            Button
-          </Button>
-
-
-          <br></br>
-          <br></br>
-
-
-        </Form>
-      </div>
-    );
-  }
-}
-function mapStateToProps(state) {
-  return {
-    activeEvent: state.activeEvent,
-    allEvents: state.events
-  };
-}
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      selectEvent: selectEvent,
-      submitEvent: submitEvent
-    }, dispatch)
-}
+      
+//   }
+// }
+// function mapStateToProps(state) {
+//   return {
+//     activeEvent: state.activeEvent,
+//     allEvents: state.events
+//   };
+// }
+// function matchDispatchToProps(dispatch) {
+//   return bindActionCreators(
+//     {
+//       selectEvent: selectEvent,
+//       submitEvent: submitEvent
+//     }, dispatch)
+// }
 
 
-export default withRouter(connect(mapStateToProps, matchDispatchToProps)(eventForm));
+// export default withRouter(connect(mapStateToProps, matchDispatchToProps)(eventForm));

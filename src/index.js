@@ -19,22 +19,48 @@ const store = createStore(allReducers, composeWithDevTools(
   applyMiddleware(logger))
   // other store enhancers if any
 );
+store.subscribe( () =>{
+  console.log("Stored Updated ", store.getState() );
+} )
 
-ReactDOM.render(
-  <div>
-    <Provider store={store}>
+store.dispatch( { 
+  type: "ADD_EVENT",
+  payload: {
+    'id': 16,
+    'title': 'Multi-day Event',
+    'start': new Date(2015, 3, 20, 19, 30, 0),
+    'end': new Date(2015, 3, 22, 2, 0, 0)
+  }
+});
 
-      <Router>
-        <Switch>
-          <Route path="/" exact strict component={calendar}></Route>
-          <Route path="/event/" exact component={eventForm}></Route>
-        </Switch>
-      </Router>
+store.dispatch({
+  type: "ADD_EVENT",
+  payload:
+      {
+        'id': 71,
+        'title': 'New Event',
+        'start': new Date(2015, 3, 20, 19, 30, 0),
+        'end': new Date(2015, 3, 22, 2, 0, 0)
+      }
+});
 
-    </Provider>
 
-  </div >
-  , document.getElementById('root'));
+
+// ReactDOM.render(
+//   <div>
+//     <Provider store={store}>
+
+//       <Router>
+//         <Switch>
+//           <Route path="/" exact strict component={calendar}></Route>
+//           <Route path="/event/" exact component={eventForm}></Route>
+//         </Switch>
+//       </Router>
+
+//     </Provider>
+
+//   </div >
+//   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
