@@ -5,7 +5,7 @@ import eventComponent from './event-component';
 import { connect } from 'react-redux';
 import '../styles/calendar.css';
 
-class calendar extends Component {
+class Calendar extends React.Component {
     state = {
         view: "month",
         date: new Date(2015, 3, 12),
@@ -30,9 +30,10 @@ class calendar extends Component {
         return (
             <div id="calendarContainer">
                 < BigCalendar
-                    events={
-                        this.props.events
+                    events= {
+                        this.props.calendarEvents.events
                     }
+
                     onNavigate={this.handleNavigate}
                     localizer={
                         localizer
@@ -48,22 +49,25 @@ class calendar extends Component {
                     toolbar={
                         true
                     }
-
                     components={
                         {
                             event: eventComponent
-
                         }
                     }
 
                 />
+
 
             </div>
 
         );
     }
 }
-function mapStateToProps(state) {
-    return { events: state.events };
-}
-export default connect(mapStateToProps)(calendar);
+const mapStateToProps = (state) => {
+    return(
+     { 
+            calendarEvents: state.EventsReducer
+     }
+     );
+};
+export default connect(mapStateToProps)(Calendar);
