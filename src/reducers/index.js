@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import EventsReducer from "./reducer-events";
+import EventsReducer from "./events-reducer";
+import TodoReducer from "./todo-reducer";
 const allReducers = combineReducers({
-   EventsReducer
+   EventsReducer,
+   TodoReducer
 });
 
 export default allReducers;

@@ -48,7 +48,15 @@ store.dispatch({
 store.dispatch({
   type: "DELETE_EVENT",
   payload: {
-    'id': 92,
+    'id': 2,
+  }
+});
+
+store.dispatch({
+  type: "ADD_TODO",
+  payload: {
+    'id': 1,
+    'text':"This is a test text"
   }
 });
 
