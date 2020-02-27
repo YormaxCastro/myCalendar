@@ -109,7 +109,17 @@ const EventsReducer = ( state = { events }, action) => {
     switch (action.type) { // set all action here and return its payload  
         case "EVENT_SELECTED":
            break;
-        case "SUBMIT_EVENT":
+        case "UPDATE_EVENT":
+              state = {
+                  ...state,
+                  events: state.events.map((item) => {
+
+                      if (item.id === action.payload.id) {
+                          return action.payload;
+                      }
+                      return item;
+                  })
+              }              
             break;
         case "ADD_EVENT":
             state =  {
@@ -117,7 +127,11 @@ const EventsReducer = ( state = { events }, action) => {
                 events: [...state.events, action.payload]
             }
             break;
-            
+        case "DELETE_EVENT":
+            state={
+                ...state,
+                events: state.events.filter(val => val.id !== action.payload.id)
+            }       
     }
     return state
 

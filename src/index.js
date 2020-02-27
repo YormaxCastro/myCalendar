@@ -24,10 +24,10 @@ store.subscribe( () =>{
 } )
 
 store.dispatch( { 
-  type: "ADD_EVENT",
+  type: "UPDATE_EVENT",
   payload: {
     'id': 16,
-    'title': 'Multi-day Event',
+    'title': 'Test Update Event',
     'start': new Date(2015, 3, 20, 19, 30, 0),
     'end': new Date(2015, 3, 22, 2, 0, 0)
   }
@@ -45,6 +45,12 @@ store.dispatch({
 });
 
 
+store.dispatch({
+  type: "DELETE_EVENT",
+  payload: {
+    'id': 92,
+  }
+});
 
 // ReactDOM.render(
 //   <div>
