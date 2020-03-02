@@ -34,12 +34,13 @@ class eventComponent extends Component {
         );
     }
 }
-function mapStateToProps(state) {
-    return {
-        allEvents: state.events,
-        activeEvent: state.activeEvent
-    };
-}
+const mapStateToProps = (state) => {
+    return (
+        {
+            eventsReducer: state.EventsReducer
+        }
+    );
+};
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({ selectEvent: selectEvent }, dispatch)
 }

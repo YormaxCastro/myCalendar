@@ -31,7 +31,7 @@ class Calendar extends React.Component {
             <div id="calendarContainer">
                 < BigCalendar
                     events= {
-                        this.props.calendarEvents.events
+                        this.props.eventsReducer.events
                     }
 
                     onNavigate={this.handleNavigate}
@@ -66,7 +66,7 @@ class Calendar extends React.Component {
 const mapStateToProps = (state) => {
     return(
      { 
-            calendarEvents: state.EventsReducer
+            eventsReducer: state.EventsReducer
      }
      );
 };

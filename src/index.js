@@ -14,7 +14,6 @@ import { Route } from 'react-router';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import Calendar from './components/calendar';
 import eventForm from './components/event-form';
-import Test from './components/test';
 
 const store = createStore(allReducers, composeWithDevTools(
   applyMiddleware(logger)));

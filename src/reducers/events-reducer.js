@@ -104,10 +104,15 @@ let events = [
     }
 ];
 
-const EventsReducer = ( state = { events }, action) => {
+const EventsReducer = ( state = { events , selectedEvent: {} }, action) => {
 
     switch (action.type) { // set all action here and return its payload  
         case "EVENT_SELECTED":
+            state = {
+                ...state,
+                selectedEvent: action.payload
+            }
+
            break;
         case "UPDATE_EVENT":
               state = {
