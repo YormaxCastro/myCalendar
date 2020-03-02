@@ -57,11 +57,11 @@ class eventForm extends Component {
   }
   componentWillMount() {
     let selectedEvent = this.props.eventsReducer.selectedEvent;
-    console.log(selectedEvent);
+    //console.log(selectedEvent);
     if (JSON.stringify(selectedEvent) !== "{}") {
       this.setState({
         title: selectedEvent.title,
-        desc: selectedEvent.id,
+        description: selectedEvent.description,
         startDate: selectedEvent.start,
         endDate: selectedEvent.end,
         isNewEvent: false
@@ -70,7 +70,6 @@ class eventForm extends Component {
     }
   }
   componentWillUnmount() {
-    //console.log(this.props);
   }
 
   render() {
@@ -80,9 +79,11 @@ class eventForm extends Component {
                 <h1>  Details </h1>
                 <Form>
                     <Form.Group controlId="eventDetails">
-
                         <Form.Label>Event</Form.Label>
-                        <Form.Control placeholder="John Doe's Birthday" value={this.state.title} onChange={this.handleChange} />
+                        <Form.Control 
+                            placeholder="John Doe's Birthday" 
+                            value={this.state.title} 
+                            onChange={ this.handleChange } />
                         <Form.Label>Date</Form.Label>
 
                         <div id="dateRange">
@@ -125,23 +126,21 @@ class eventForm extends Component {
 
                     <Form.Group controlId="description">
                         <Form.Label>Description : </Form.Label>
-                        <Form.Control as="textarea" rows="3" />
+                        <Form.Control
+                         as="textarea" 
+                         rows="3" 
+                         value={this.state.description} 
+                         onChange={this.handleChange}  />
                     </Form.Group>
 
                     <Button variant="primary" type="submit" id="submitBut">
                         Submit
-          </Button>
-
-
+                    </Button>
                     <br></br>
                     <br></br>
 
 
                 </Form>
-
-
-
-
             </div>
         );
     }
