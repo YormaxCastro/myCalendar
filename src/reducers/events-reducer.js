@@ -124,13 +124,11 @@ const EventsReducer = ( state = { events , selectedEvent: {} }, action) => {
                 ...state,
                 selectedEvent: action.payload
             }
-
            break;
         case "UPDATE_EVENT":
               state = {
                   ...state,
                   events: state.events.map((item) => {
-
                       if (item.id === action.payload.id) {
                           return action.payload;
                       }

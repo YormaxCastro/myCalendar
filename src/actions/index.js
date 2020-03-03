@@ -4,9 +4,17 @@ export const selectEvent = (event) => {
     payload: event
   }
 };
-export const submitEvent = (event) => {
+
+export const addEvent = (event) => {
   return {
-    type: "SUBMIT_EVENT",
+    type: "ADD_EVENT",
+    payload: event
+  }
+};
+
+export const updateEvent = (event) => {
+  return {
+    type: "UPDATE_EVENT",
     payload: event
   }
 };

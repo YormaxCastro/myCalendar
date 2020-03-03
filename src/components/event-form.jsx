@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, withRouter, Link, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
-import { selectEvent, submitEvent } from '../actions/index';
+import { selectEvent, addEvent, updateEvent } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import DatePicker from "react-datepicker";
 import { Form, Button } from 'react-bootstrap';
@@ -10,29 +10,13 @@ import "../styles/event.css";
 
 
 class eventForm extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      description: "",
-      startDate: new Date(),
-      endDate: new Date(),
-      location: null,
-      isNewEvent: true
-    };
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submitEvent = this.submitEvent.bind(this);
-    //this.routeChange = this.routeChange.bind(this);
-
-
   }
-  // routeChange() {
-  //   let path = ``;
-  //   this.props.history.push(path);
-  // }
   handleStartChange(date) {
     this.setState({
       startDate: date
@@ -49,41 +33,61 @@ class eventForm extends Component {
     this.setState(change);
   }
   submitEvent()  {
-    let selectedEvent = {
-      title: this.state.title
-    };
-    console.log(selectedEvent);
-    this.props.submitEvent(selectedEvent);
+    let eventExists = false;
+    let allEvents = this.props.eventsReducer.events;
+    for (let i = 0; i < allEvents.length; i++) {
+      if (allEvents[i].id === this.state.id) {
+        eventExists= true;
+      }
+    }
+    let currentEvent= {
+      id: this.state.id,
+      title: this.state.title,
+      description: this.state.description,
+      startDate: this.state.start,
+      endDate: this.state.end
+    }
+    if (eventExists){ 
+      this.props.updateEvent(currentEvent);
+    } else {
+      this.props.addEvent(currentEvent);
+    }
+
   }
   componentWillMount() {
+    let uuid = require('react-native-uuid');
     let selectedEvent = this.props.eventsReducer.selectedEvent;
-    //console.log(selectedEvent);
     if (JSON.stringify(selectedEvent) !== "{}") {
       this.setState({
+        id: selectedEvent.id,
         title: selectedEvent.title,
         description: selectedEvent.description,
         startDate: selectedEvent.start,
-        endDate: selectedEvent.end,
-        isNewEvent: false
+        endDate: selectedEvent.end
       }
       );
+    } else {
+      this.setState({
+        id: uuid.v4(),
+        title: "",
+        description: "",
+        startDate: new Date(),
+        endDate: new Date()
+      });
     }
   }
-  componentWillUnmount() {
-  }
-
   render() {
         return (
 
             <div className="eventContainer">
                 <h1>  Details </h1>
-                <Form>
+                <Form onSubmit={this.submitEvent}>
                     <Form.Group controlId="eventDetails">
                         <Form.Label>Event</Form.Label>
                         <Form.Control 
                             placeholder="John Doe's Birthday" 
                             value={this.state.title} 
-                            onChange={ this.handleChange } />
+                            onChange={(event) => this.setState({ title: event.target.value }) } />
                         <Form.Label>Date</Form.Label>
 
                         <div id="dateRange">
@@ -156,7 +160,8 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       selectEvent: selectEvent,
-      submitEvent: submitEvent
+      addEvent: addEvent,
+      updateEvent: updateEvent
     }, dispatch)
 }
 
