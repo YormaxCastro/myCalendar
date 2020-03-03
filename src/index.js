@@ -62,10 +62,8 @@ ReactDOM.render(
   <div>
     <Provider store={store}>
       <Router>
-        <Switch>
           <Route path="/" exact strict component={Calendar}></Route>
           <Route path="/event/" exact component={eventForm}></Route>
-        </Switch>
       </Router>  
     </Provider>
 

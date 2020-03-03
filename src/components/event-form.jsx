@@ -19,12 +19,12 @@ class eventForm extends Component {
   }
   handleStartChange(date) {
     this.setState({
-      startDate: date
+      start: date
     });
   }
   handleEndChange(date) {
     this.setState({
-      endDate: date
+      end: date
     });
   }
   handleChange(event) {
@@ -44,14 +44,16 @@ class eventForm extends Component {
       id: this.state.id,
       title: this.state.title,
       description: this.state.description,
-      startDate: this.state.start,
-      endDate: this.state.end
+      start: this.state.start,
+      end: this.state.end
     }
     if (eventExists){ 
       this.props.updateEvent(currentEvent);
     } else {
       this.props.addEvent(currentEvent);
     }
+    this.props.history.push('/');
+
 
   }
   componentWillMount() {
@@ -62,8 +64,8 @@ class eventForm extends Component {
         id: selectedEvent.id,
         title: selectedEvent.title,
         description: selectedEvent.description,
-        startDate: selectedEvent.start,
-        endDate: selectedEvent.end
+        start: selectedEvent.start,
+        end: selectedEvent.end
       }
       );
     } else {
@@ -71,8 +73,8 @@ class eventForm extends Component {
         id: uuid.v4(),
         title: "",
         description: "",
-        startDate: new Date(),
-        endDate: new Date()
+        start: new Date(),
+        end: new Date()
       });
     }
   }
@@ -94,7 +96,7 @@ class eventForm extends Component {
 
                             < DatePicker
                                 selected={
-                                    this.state.startDate
+                                    this.state.start
                                 }
                                 onChange={
                                     this.handleStartChange
@@ -111,7 +113,7 @@ class eventForm extends Component {
 
                             < DatePicker
                                 selected={
-                                    this.state.endDate
+                                    this.state.end
                                 }
                                 onChange={
                                     this.handleEndChange
@@ -137,9 +139,10 @@ class eventForm extends Component {
                          onChange={this.handleChange}  />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit" id="submitBut">
+                      <Button variant="primary" type="submit" id="submitBut">
                         Submit
-                    </Button>
+                      </Button>
+
                     <br></br>
                     <br></br>
 
