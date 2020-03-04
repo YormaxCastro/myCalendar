@@ -73,8 +73,8 @@ class eventForm extends Component {
         id: uuid.v4(),
         title: "",
         description: "",
-        start: new Date(),
-        end: new Date()
+        start: new Date(2020, 4, 12),
+        end: new Date(2020, 4, 13)
       });
     }
   }

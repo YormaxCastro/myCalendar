@@ -8,11 +8,8 @@ import '../styles/calendar.css';
 class Calendar extends React.Component {
     state = {
         view: "month",
-        date: new Date(2015, 3, 12),
+        date: new Date(2020, 3, 12),
         width: 1200 //set accorrding to window size 
-    }
-    handleNavigate() {
-        this.setState(this.state);
     }
     componentDidMount() {
 
@@ -34,7 +31,7 @@ class Calendar extends React.Component {
                         this.props.eventsReducer.events
                     }
 
-                    onNavigate={this.handleNavigate}
+                    onNavigate={date => this.setState({ date })}
                     localizer={
                         localizer
                     }
